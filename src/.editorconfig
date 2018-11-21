@@ -1,0 +1,34 @@
+# editorconfig.org
+
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+# CSharp code style settings:
+# https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
+[*.cs]
+indent_size = 4
+dotnet_style_qualification_for_field = false:suggestion
+dotnet_style_qualification_for_property = false:suggestion
+dotnet_style_qualification_for_method = false:suggestion
+dotnet_style_predefined_type_for_member_access = true:suggestion
+dotnet_style_object_initializer = true:suggestion
+dotnet_style_collection_initializer = true:suggestion
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+csharp_style_expression_bodied_constructors = false:none
+csharp_style_throw_expression = true:suggestion
+csharp_style_conditional_delegate_call = true:suggestion
+
+# Automatic .xml writers don't honor .editorconfig so set default indent to 2 to avoid lots of changes when upgrading nugets
+[*.xml]
+indent_style = space
+indent_size = 2
+
+# Automatic .config writers don't honor .editorconfig so set default indent to 2 to avoid lots of changes when upgrading nugets
+[*.config]
+indent_style = space
+indent_size = 2

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Autonomous.Mock</name>
+    </assembly>
+    <members>
+        <member name="T:Autonomous.Mock.AutoMock">
+            <summary>
+            Automatically Mock constructor arguments for a given type.
+            </summary>
+        </member>
+        <member name="M:Autonomous.Mock.AutoMock.Create``1">
+            <summary>
+            Create a <see cref="T:Autonomous.Mock.Subject`1"/>.
+            </summary>
+            <typeparam name="TClass">The type of TestSubject.</typeparam>
+            <returns>The subject.</returns>
+        </member>
+        <member name="M:Autonomous.Mock.AutoMock.Create``1(System.Action{Autonomous.Mock.ConfigurationExpression})">
+            <summary>
+            Create a <see cref="T:Autonomous.Mock.Subject`1"/>.
+            </summary>
+            <param name="configurationExpression">A configuration expression to setup rules for mocking a certain type.</param>
+            <typeparam name="TClass">The type of test subject.</typeparam>
+            <returns>The test subject.</returns>
+        </member>
+        <member name="T:Autonomous.Mock.ConfigurationExpression">
+            <summary>
+            A set of methods to configure how a type should be mapped to an instance.
+            </summary>
+        </member>
+        <member name="M:Autonomous.Mock.ConfigurationExpression.#ctor(System.Collections.Generic.Dictionary{System.Type,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Autonomous.Mock.ConfigurationExpression"/> class.
+            </summary>
+            <param name="mockContextTypeMap">The type map reference to a <see cref="T:Autonomous.Mock.IMockContext"/>.</param>
+        </member>
+        <member name="M:Autonomous.Mock.ConfigurationExpression.For``1(System.Object)">
+            <summary>
+            Set how to map a type to a specific object.
+            </summary>
+            <typeparam name="TClass">The type of class to use as key.</typeparam>
+            <param name="useObject">The type of object that should be returned for the given type.</param>
+        </member>
+        <member name="T:Autonomous.Mock.IMockContext">
+            <summary>
+            Contextual settings for the context in which the Mocks are done.
+            </summary>
+        </member>
+        <member name="P:Autonomous.Mock.IMockContext.TypeMap">
+            <summary>
+            Gets the type map.
+            </summary>
+        </member>
+        <member name="T:Autonomous.Mock.ISubject`1">
+            <summary>
+            An abstraction of the testable subject.
+            </summary>
+            <typeparam name="TClass">The type of class to test.</typeparam>
+        </member>
+        <member name="P:Autonomous.Mock.ISubject`1.Instance">
+            <summary>
+            Gets the concrete test subject instance.
+            </summary>
+        </member>
+        <member name="P:Autonomous.Mock.ISubject`1.Dependencies">
+            <summary>
+            Gets an enumerable representation of the subject constructor dependencies.
+            </summary>
+        </member>
+        <member name="M:Autonomous.Mock.ISubject`1.GetMock``1">
+            <summary>
+            Will resolve the requested <see cref="T:Moq.Mock`1"/> from <see cref="P:Autonomous.Mock.ISubject`1.Dependencies"/>.
+            </summary>
+            <typeparam name="T">The type of Mocked object to look for.</typeparam>
+            <returns>The mocked representation of the object.</returns>
+        </member>
+        <member name="T:Autonomous.Mock.MockContext">
+            <summary>
+            A context for the mocks, containing type maps and Mock configuration.
+            </summary>
+        </member>
+        <member name="P:Autonomous.Mock.MockContext.TypeMap">
+            <inheritdoc/>
+        </member>
+        <member name="T:Autonomous.Mock.Subject`1">
+            <summary>
+            Represents a test subject with the testable instance and it's constructor dependencies.
+            </summary>
+            <typeparam name="TClass">The type of class to test.</typeparam>
+        </member>
+        <member name="M:Autonomous.Mock.Subject`1.#ctor(`0,System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Autonomous.Mock.Subject`1"/> class.
+            </summary>
+            <param name="instance">The instance to test.</param>
+            <param name="dependencies">The constructor dependencies.</param>
+        </member>
+        <member name="P:Autonomous.Mock.Subject`1.Instance">
+            <inheritdoc/>
+        </member>
+        <member name="P:Autonomous.Mock.Subject`1.Dependencies">
+            <inheritdoc/>
+        </member>
+        <member name="M:Autonomous.Mock.Subject`1.GetMock``1">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

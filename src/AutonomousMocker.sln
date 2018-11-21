@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autonomous.Mock", "Autonomous.Mock\Autonomous.Mock.csproj", "{79CC597A-970A-4B9F-B79F-4C74CDFE4B7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E98D821-2FD6-4418-B909-FFC9F3B84481}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		AutonomousMocker.ruleset = AutonomousMocker.ruleset
+		..\README.md = ..\README.md
+		stylecop.json = stylecop.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autonomous.Mock.Tests", "..\tests\Autonomous.Mock.Tests\Autonomous.Mock.Tests.csproj", "{1F0BF86A-3A9B-44BE-B4B4-1109D1DC9D33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79CC597A-970A-4B9F-B79F-4C74CDFE4B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79CC597A-970A-4B9F-B79F-4C74CDFE4B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79CC597A-970A-4B9F-B79F-4C74CDFE4B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79CC597A-970A-4B9F-B79F-4C74CDFE4B7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F0BF86A-3A9B-44BE-B4B4-1109D1DC9D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F0BF86A-3A9B-44BE-B4B4-1109D1DC9D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F0BF86A-3A9B-44BE-B4B4-1109D1DC9D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F0BF86A-3A9B-44BE-B4B4-1109D1DC9D33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A10E81A-8BBA-4300-A1C2-B48FDA31EAC7}
+	EndGlobalSection
+EndGlobal
