@@ -16,23 +16,37 @@ Some examples with the imaginary Golfer class.
 [Fact]
 public void Golfer_should_swing_with_given_club()
 {
-	var subject = AutoMock.Create<Golfer>();
+    var subject = AutoMock.Create<Golfer>();
 
-	var result = subject.Instance.Swing(); 
+    var result = subject.Instance.Swing(); 
 
-	Assert.Equal("I swung a mocked club", result);
+    Assert.Equal("I swung a mocked club", result);
 }
 
 [Fact]
 public void Golfer_should_use_concrete_caddy()
 {
-	var subject = AutoMock.Create<Golfer>(config => 
-	{
-		config.For<ICaddy>(new Caddy());
-	});
+    var subject = AutoMock.Create<Golfer>(config => 
+    {
+        config.For<ICaddy>(new Caddy());
+    });
 
-	var result = subject.Instance.Swing();
+    var result = subject.Instance.Swing();
 
-	Assert.Equal("I swung a real club", result);
+    Assert.Equal("I swung a real club", result);
+}
+
+[Fact]
+public void Golfer_should_use_the_club()
+{
+    var subject = AutoMock.Create<Golfer>();
+    
+    // .GetMock<TType>() is a built in helper function
+    // to get a mocked constructor argument
+    var clubMock = subject.GetMock<IClub>();
+
+    var result = subject.Instance.Swing();
+    
+    clubMock.Verify(club => club.Use(), Times.Once);
 }
 ```
