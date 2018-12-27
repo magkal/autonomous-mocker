@@ -24,6 +24,14 @@
             <typeparam name="TClass">The type of test subject.</typeparam>
             <returns>The test subject.</returns>
         </member>
+        <member name="M:Autonomous.Mock.AutoMock.ResolveConstructor(System.Type)">
+            <summary>
+            Resolve the constructor to use in the unit test. If the class has more than one, select the one with the most parameters
+            to be more flexible.
+            </summary>
+            <param name="type">The type to get the constructor from.</param>
+            <returns>The constructor to use.</returns>
+        </member>
         <member name="T:Autonomous.Mock.ConfigurationExpression">
             <summary>
             A set of methods to configure how a type should be mapped to an instance.

@@ -20,8 +20,7 @@
             where TClass : class
         {
             Type type = typeof(TClass);
-            ConstructorInfo[] constructors = type.GetConstructors();
-            ConstructorInfo constructor = constructors.FirstOrDefault();
+            ConstructorInfo constructor = ResolveConstructor(type);
 
             var mockedArguments = GetMockedArguments(constructor);
 
@@ -42,8 +41,7 @@
             where TClass : class
         {
             Type type = typeof(TClass);
-            ConstructorInfo[] constructors = type.GetConstructors();
-            ConstructorInfo constructor = constructors.FirstOrDefault();
+            ConstructorInfo constructor = ResolveConstructor(type);
 
             MockContext mockContext = null;
             if (configurationExpression != null)
@@ -69,6 +67,23 @@
             var instance = constructor.Invoke(concreteArguments) as TClass;
 
             return new Subject<TClass>(instance, mockedArguments);
+        }
+
+        /// <summary>
+        /// Resolve the constructor to use in the unit test. If the class has more than one, select the one with the most parameters
+        /// to be more flexible.
+        /// </summary>
+        /// <param name="type">The type to get the constructor from.</param>
+        /// <returns>The constructor to use.</returns>
+        private static ConstructorInfo ResolveConstructor(Type type)
+        {
+            ConstructorInfo[] constructors = type.GetConstructors();
+
+            constructors = constructors
+                .OrderByDescending(constructor => constructor.GetParameters().Count())
+                .ToArray();
+
+            return constructors.FirstOrDefault();
         }
 
         private static IEnumerable<object> GetMockedArguments(ConstructorInfo constructor, IMockContext mockContext = null)

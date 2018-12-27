@@ -67,5 +67,25 @@
 
 			Assert.Equal(expected, result);
 		}
+
+		[Fact(DisplayName = "AutoMock: Should use the constructor with most parameters")]
+		public void Should_use_constructor_with_most_parameters()
+		{
+			var subject = AutoMock.Create<WebPage>(config =>
+			{
+				config.For<IDatabase>(new Database());
+			});
+
+			var webServiceMock = subject.GetMock<IWebService>();
+			webServiceMock
+				.Setup(service => service.GetData())
+				.Returns("From IWebService.");
+
+			string result = subject.Instance.Render();
+
+			string expected = "Hello world data returned from a database.From IWebService.";
+
+			Assert.Equal(expected, result);
+		}
 	}
 }
